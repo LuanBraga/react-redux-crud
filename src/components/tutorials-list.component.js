@@ -1,6 +1,10 @@
+import { Container } from "reactstrap";
+
 function TutorialList() {
     return(
-        <h1>Tutorial List</h1>
+        <Container>
+            <h1>Tutorial List</h1>
+        </Container>
     );
 }
 

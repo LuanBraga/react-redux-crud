@@ -1,6 +1,11 @@
+import { Container } from "reactstrap";
+
 function Home() {
     return(
-        <h1>Home</h1>
+        <Container>
+            <h1>Home</h1>
+        </Container>
+        
     );
 }
 

@@ -1,7 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 
-import { Nav, Navbar, NavbarBrand, NavItem, NavLink, NavbarText } from 'reactstrap';
+import { Link } from 'react-router-dom';
+
+import { Nav, Navbar, NavItem, NavbarText } from 'reactstrap';
 
 function App() {
   return (
@@ -12,26 +14,30 @@ function App() {
          dark
          expand="md"
       >
-        <NavbarBrand to="/">
-            Tutorials App
-        </NavbarBrand>
+        <Link 
+          to='/' 
+          className='navbar-brand'>
+          Tutorials App
+        </Link>
 
         <Nav
           className="me-auto"
           pills
         >
           <NavItem>
-            <NavLink
-              active
-            >
+            <Link 
+              to='/tutorials'
+              className='nav-link'>
               Tutorials
-            </NavLink>
+            </Link>
           </NavItem>
 
           <NavItem>
-            <NavLink>
+          <Link 
+              to='/add'
+              className='nav-link'>
               Add
-            </NavLink>
+            </Link>
           </NavItem>
         </Nav>
 

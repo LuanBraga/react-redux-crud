@@ -1,6 +1,10 @@
+import { Container } from "reactstrap";
+
 function Tutorial() {
     return(
-        <h1>Tutorial</h1>
+        <Container>
+            <h1>Tutorial</h1>
+        </Container>
     );
 }
 
