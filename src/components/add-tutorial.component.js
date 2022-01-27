@@ -60,7 +60,10 @@ class AddTutorial extends Component {
     }
 
     render() {
-        return(<h1>Add tutorial</h1>);
+        return(
+        <Container fluid>
+            <h1>Add tutorial</h1>
+        </Container>);
     }
 }
 
