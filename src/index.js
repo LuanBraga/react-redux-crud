@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Container } from 'reactstrap';
+import { Provider } from 'react-redux';
 
 import './index.css';
 
@@ -10,24 +12,27 @@ import Tutorial from './components/tutorial.component';
 import TutorialList from './components/tutorials-list.component';
 import AddTutorial from './components/add-tutorial.component';
 import Home from './components/home.component';
-import { Container } from 'reactstrap';
+
+import store from './store';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-    <Container
-      className='bg-light container-home'
-      fluid
-    >
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="tutorials" element={<TutorialList />} />
-        <Route path="add" element={<AddTutorial/>} />
-        <Route path="tutorials/:id" element={<Tutorial />} />
-      </Routes>
-    </Container>
-    
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+      <Container
+        className='bg-light container-home'
+        fluid
+      >
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="tutorials" element={<TutorialList />} />
+          <Route path="add" element={<AddTutorial/>} />
+          <Route path="tutorials/:id" element={<Tutorial />} />
+        </Routes>
+      </Container>
+    </BrowserRouter>
+  </Provider>
+  ,
   document.getElementById('root')
 );
 
