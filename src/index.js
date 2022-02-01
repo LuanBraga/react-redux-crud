@@ -20,7 +20,7 @@ ReactDOM.render(
     <BrowserRouter>
       <App />
       <Container
-        className='bg-light container-home'
+        className='container-home'
         fluid
       >
         <Routes>

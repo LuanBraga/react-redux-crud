@@ -1,5 +1,19 @@
 import { Component } from "react";
-import { Container } from "reactstrap";
+import { connect } from "react-redux";
+import { createTutorial } from "../actions/tutorials";
+
+import { 
+    Container, 
+    Form, 
+    FormGroup, 
+    Card, 
+    CardBody, 
+    CardTitle,
+    CardText,
+    Button,
+    Label,
+    Input,
+} from "reactstrap"
 
 class AddTutorial extends Component {
     constructor(props) {
@@ -15,13 +29,17 @@ class AddTutorial extends Component {
         };
     }
 
-    onChangeTitle = (e) => {
+    handleChangeTitle = (e) => {
+        console.log(e.target.value)
+
         this.setState({
             title: e.target.value,
         });
     }
 
-    onChangeDescription = (e) => {
+    handleChangeDescription = (e) => {
+        console.log(e.target.value)
+
         this.setState({
             description: e.target.value,
         });
@@ -61,10 +79,62 @@ class AddTutorial extends Component {
 
     render() {
         return(
-        <Container fluid>
-            <h1>Add tutorial</h1>
+        <Container fluid>    
+            <Form>
+                {this.state.submitted ? (
+                    <Card>
+                    <CardBody>
+                      <CardTitle tag="h5">
+                      {`The ${this.state.title} tutorial was Created!!`}
+                      </CardTitle>
+                      <CardText>
+                        You submitted successfully!
+                      </CardText>
+                      <Button>
+                        Add new tutorial
+                      </Button>
+                    </CardBody>
+                  </Card>
+                ) : (
+                    <>
+                        <FormGroup>
+                            <Label for="title">
+                                Title
+                            </Label>
+                            <Input
+                                id="title"
+                                name="title"
+                                placeholder="Tutorial title"
+                                type="text"
+                                value={this.state.title}
+                                onChange={this.handleChangeTitle} 
+                            />
+                        </FormGroup>
+
+                        <FormGroup>
+                            <Label for="description">
+                                Description
+                            </Label>
+                            <Input
+                                id="description"
+                                name="description"
+                                placeholder="Tutorial description"
+                                type="text"
+                                value={this.state.description}
+                                onChange={this.handleChangeDescription} 
+                            />
+                        </FormGroup>
+                       
+                        <Button
+                            onClick={this.saveTutorial}
+                        >
+                            Submit
+                        </Button>
+                    </>
+                )}
+            </Form> 
         </Container>);
     }
 }
 
-export default AddTutorial;
+export default connect(null, { createTutorial })(AddTutorial);
