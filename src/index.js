@@ -25,9 +25,9 @@ ReactDOM.render(
       >
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="tutorials" element={<TutorialList />} />
-          <Route path="add" element={<AddTutorial/>} />
-          <Route path="tutorials/:id" element={<Tutorial />} />
+          <Route path="/tutorials" element={<TutorialList />} />
+          <Route path="/add" element={<AddTutorial/>} />
+          <Route path="/tutorials/:id" element={<Tutorial />} />
         </Routes>
       </Container>
     </BrowserRouter>

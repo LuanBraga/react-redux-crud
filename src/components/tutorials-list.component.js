@@ -4,6 +4,7 @@
 //currentIndex
 
 import { Component } from "react";
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 
 import {
@@ -127,7 +128,7 @@ class TutorialList extends Component {
                     <Col>
                         <Card>
                             <CardHeader>
-                                Tutorial
+                                Tutorial Info
                             </CardHeader>
                             <CardBody>
                                 <CardTitle tag="h5">
@@ -140,15 +141,21 @@ class TutorialList extends Component {
 
                                 <CardText>
                                     {
-                                        currentTutorial === null ? 
-                                        'Select an item from the list.' : 
+                                        currentTutorial === null ?
+                                        'Select an item from the list.': 
                                         `Description: ${currentTutorial.description}.`
                                     }
                                 </CardText>
-
-                                <Button>
-                                    Edit
-                                </Button>
+                                    {
+                                        currentTutorial !== null?
+                                        <Link
+                                            to={`/tutorials/${currentTutorial.id}`}
+                                            className="badge bg-warning"
+                                        >
+                                            EDIT
+                                        </Link> : ''
+                                    }
+                                
                             </CardBody>
                         </Card>
                     </Col>
